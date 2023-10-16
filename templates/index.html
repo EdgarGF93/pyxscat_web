@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        #main-container {
+            display: flex;
+            height: 100%;
+        }
+        #left-box {
+            flex: 1;
+            background-color: #f0f0f0;
+        }
+        #right-box {
+            flex: 3;
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="main-container">
+
+
+
+    <div id="left-box" class="d-flex flex-column">
+        <!-- Tab Widget -->
+        <div class="p-2">
+
+            <!-- MAIN TAB -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="tab1-tab" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">Setup</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="tab2-tab" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false">Metadata</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="tab3-tab" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false">Cake Integration</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="tab4-tab" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false">Box Integration</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="tab5-tab" data-toggle="tab" href="#tab5" role="tab" aria-controls="tab5" aria-selected="false">HDF5</a>
+                </li>
+            </ul>
+
+
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">Content for Tab 1</div>
+                <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">Content for Tab 2</div>
+                <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">Content for Tab 3</div>
+                <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="tab4-tab">Content for Tab 4</div>
+                <div class="tab-pane fade" id="tab5" role="tabpanel" aria-labelledby="tab5-tab">Content for Tab 5</div>
+            </div>
+        </div>
+
+        <!-- List Widget -->
+        <div class="p-2 flex-grow-1">
+            <ul class="list-group">
+                <li class="list-group-item">Sample 1</li>
+                <li class="list-group-item">Sample 2</li>
+                <!-- ...repeat for other list items... -->
+            </ul>
+        </div>
+
+        <!-- Table Widget -->
+        <div class="p-2">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Column 1</th>
+                        <th scope="col">Column 2</th>
+                        <!-- ...repeat for other columns... -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Row 1 Data 1</td>
+                        <td>Row 1 Data 2</td>
+                        <!-- ...repeat for other data... -->
+                    </tr>
+                    <!-- ...repeat for other rows... -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div id="right-box" class="d-flex flex-column">
+
+
+
+
+    <div class="flex-grow-1 d-flex" style="height: 80%;">
+        <!-- Left Element: Tab Widget with Three Tabs -->
+        <div class="w-50">
+            <ul class="nav nav-tabs" id="leftTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="left-tab1-tab" data-toggle="tab" href="#left-tab1" role="tab" aria-controls="left-tab1" aria-selected="true">Tab 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="left-tab2-tab" data-toggle="tab" href="#left-tab2" role="tab" aria-controls="left-tab2" aria-selected="false">Tab 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="left-tab3-tab" data-toggle="tab" href="#left-tab3" role="tab" aria-controls="left-tab3" aria-selected="false">Tab 3</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="left-tab1" role="tabpanel" aria-labelledby="left-tab1-tab">Content for Tab 1</div>
+                <div class="tab-pane fade" id="left-tab2" role="tabpanel" aria-labelledby="left-tab2-tab">Content for Tab 2</div>
+                <div class="tab-pane fade" id="left-tab3" role="tabpanel" aria-labelledby="left-tab3-tab">Content for Tab 3</div>
+            </div>
+        </div>
+
+        <!-- Right Element: Tab Widget with One Tab containing a 1D Plot -->
+        <div class="w-50">
+            <ul class="nav nav-tabs" id="rightTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="right-tab1-tab" data-toggle="tab" href="#right-tab1" role="tab" aria-controls="right-tab1" aria-selected="true">Plot Tab</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="right-tab1" role="tabpanel" aria-labelledby="right-tab1-tab">
+                    <div id="plot"></div>
+                    <script>
+                        var trace1 = {
+                            x: [1, 2, 3, 4, 5],
+                            y: [10, 15, 13, 17, 20],
+                            type: 'scatter'
+                        };
+                        var layout = {
+                            title: '1D Plot',
+                            xaxis: {
+                                title: 'X Axis Label',
+                            },
+                            yaxis: {
+                                title: 'Y Axis Label',
+                            }
+                        };
+                        var data = [trace1];
+                        Plotly.newPlot('plot', data, layout);
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+        <!-- Plain Text Widget -->
+        <div class="flex-shrink-1">
+            <textarea class="form-control" rows="4" placeholder="Enter text here..."></textarea>
+        </div>
+
+
+
+    </div>
+    
+
+
+
+
+</div>
+
+</body>
+</html>
